@@ -2,6 +2,7 @@
 import { Message, Payload } from "@/app/_methods/types"
 import { URL_ACTUAL } from "./variables";
 import { createSession } from "@/app/_methods/sesion";
+import { redirect } from "next/navigation";
 
 
 const Login = async (_: Message, data : FormData) => {
@@ -27,6 +28,7 @@ const Login = async (_: Message, data : FormData) => {
         const user = body["body"] as Payload;
         console.log("User Info:", user);
         await createSession(user);
+        redirect("/")
 
     }
 
