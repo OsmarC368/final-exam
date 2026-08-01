@@ -1,0 +1,77 @@
+.mensaje-error {
+    color: rgb(187, 3, 3);
+    font-weight: bold;
+    font-family: fantasy;
+    background-color: rgba(255, 20, 20, 0.188);
+    border: 1px solid red;
+    padding: 1rem;
+}
+
+.mensaje-exito {
+    color: rgb(15, 130, 15);
+    font-weight: bold;
+    font-family: fantasy;
+    background-color: rgba(32, 255, 20, 0.188);
+    border: 1px solid green;
+    padding: 1rem;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.form-container input:focus, input:valid {
+    outline: none;
+    border-color: #000000;
+    background-color: #00000085;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #070605;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.form-container button:hover {
+    background-color: #28251F;
+}
+
+.form-container fieldset {
+    padding: 1rem;
+    border-radius: 4px;
+    width: 100%;
+    margin: 1rem
+}
+
+.form-container legend {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    text-decoration: underline;
+    font-family: mantserrat;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
