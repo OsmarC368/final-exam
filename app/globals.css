@@ -36,3 +36,12 @@ html, body {
   display: flex;
   flex-direction: column;
 }
+
+.MuiChartsLegend-root{
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+button :hover {
+  cursor: pointer;
+}

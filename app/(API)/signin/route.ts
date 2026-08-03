@@ -8,6 +8,7 @@ const POST = async (request: NextRequest) => {
     const username = body["username"] as string;
     const password = body["password"] as string;
     const userType = body["userType"] as string;
+    const birthDate = body["birthDate"] as string;
 
     try {
         const client = await mongodbConexion;
@@ -37,7 +38,8 @@ const POST = async (request: NextRequest) => {
             email,
             username,
             password: btoa(password),
-            userType
+            userType,
+            birthDate
         })
 
         if (newUser.acknowledged)

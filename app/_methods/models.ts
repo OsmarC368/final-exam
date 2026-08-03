@@ -88,7 +88,7 @@ const Valyrians = sequilize.define<Valyrians>("valyrians", {
     },
 
     pronunciation: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.TEXT,
         allowNull: false
     }
 

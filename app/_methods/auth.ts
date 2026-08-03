@@ -46,6 +46,7 @@ const Register = async (_ : Message, formData : FormData) => {
     const password = formData.get("password") as string;
     const passwordAgain = formData.get("passwordAgain") as string;
     const userType = formData.get("userType") as string;
+    const date = formData.get("selectedDate") as string;
 
     if (password != passwordAgain) {
         message = "The Paswwords Dont Match";
@@ -59,7 +60,8 @@ const Register = async (_ : Message, formData : FormData) => {
                 email: email,
                 username: username,
                 password: password,
-                userType: userType
+                userType: userType,
+                birthDate: date
             }
         )
     });

@@ -18,7 +18,7 @@ const FormDragons = ({ dragon }: DragonDataProps) => {
 
     useEffect(() => {
             if (request.auth) {
-                window.location.href = "/dragons";
+                window.location.href = "/dragons?message=Action Completed Succesfully!";
             }
         }, [request]);
     return(

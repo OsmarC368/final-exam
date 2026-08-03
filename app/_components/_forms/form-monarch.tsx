@@ -18,7 +18,7 @@ const FormMonarchs = ({ monarch }: MonarchDataProps) => {
 
     useEffect(() => {
         if (request.auth) {
-            window.location.href = "/monarch";
+            window.location.href = "/monarch?message=Action Completed Succesfully!";
         }
     }, [request]);
 

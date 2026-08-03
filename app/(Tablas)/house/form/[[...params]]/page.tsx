@@ -1,4 +1,4 @@
-import FormTest from "@/app/_components/_forms/form-house";
+import FormHouses from "@/app/_components/_forms/form-house";
 import { getHouseByID } from "@/app/_methods/postgre_methods"
 
 const Page = async ({params}: { params: { params?: string[] } }) => {
@@ -10,7 +10,7 @@ const Page = async ({params}: { params: { params?: string[] } }) => {
     }
     return (
         <div>
-            <FormTest house={house}/>
+            <FormHouses house={house}/>
         </div>
     )
 }

@@ -34,7 +34,7 @@ const FormCastles = ({ castle }: CastleDataProps) => {
 
     useEffect(() => {
         if (request.auth) {
-            window.location.href = "/castle";
+            window.location.href = "/castle?message=Action Completed Succesfully!";
         }
     }, [request]);
 
@@ -69,7 +69,7 @@ const FormCastles = ({ castle }: CastleDataProps) => {
                     <br />
                     <div>
                         <label htmlFor="location">Location</label>
-                        <input type="number" id="location" name="location" required disabled={pending} defaultValue={castle?.location || ""}/>
+                        <input type="text" id="location" name="location" required disabled={pending} defaultValue={castle?.location || ""}/>
                     </div>
                     <br />
                     <button type="submit" disabled={pending}>{castle ? "Actualizar" : "Guardar"}</button>

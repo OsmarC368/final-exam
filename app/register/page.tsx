@@ -1,16 +1,20 @@
 "use client"
 import Form from "next/form";
-import { useActionState, Activity, useEffect } from "react"
+import { useActionState, Activity, useEffect, useState } from "react"
 import { Register } from "@/app/_methods/auth"
 import Estilos from "@/app/login/styles.module.css"
 import { useRouter } from "next/navigation";
+import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers"
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
+import dayjs, { Dayjs } from "dayjs"
 
 const Page = () => {
     const [request, action, pending] = useActionState(Register, {
         message: "",
         auth: false
     });
-
+    const [fecha, setFecha] = useState<Dayjs | null>(dayjs("2003-05-30"))
+    const formattedDate = fecha ? fecha.format("YYYY-MM-DD") : "";
     const router = useRouter();
 
     useEffect(() => {
@@ -23,27 +27,27 @@ const Page = () => {
         <div>
             <Form action={action} className={Estilos["form-container"]}>
                 <fieldset>
-                    <legend>Register</legend>       
+                    <legend>Register</legend>
                     <div>
                         <label htmlFor="email">Email</label>
-                        <input type="text" id="email" name="email" required disabled={pending}/>
+                        <input type="text" id="email" name="email" required disabled={pending} />
                     </div>
                     <br />
                     <div>
                         <label htmlFor="username">Username</label>
-                        <input type="text" id="username" name="username" required disabled={pending}/>
+                        <input type="text" id="username" name="username" required disabled={pending} />
                     </div>
                     <br />
 
                     <div>
                         <label htmlFor="password">Password</label>
-                        <input type="password" id="password" name="password" required disabled={pending}/>
+                        <input type="password" id="password" name="password" required disabled={pending} />
                     </div>
                     <br />
 
                     <div>
                         <label htmlFor="passwordAgain">Password Again</label>
-                        <input type="password" id="passwordAgain" name="passwordAgain" required disabled={pending}/>
+                        <input type="password" id="passwordAgain" name="passwordAgain" required disabled={pending} />
                     </div>
                     <br />
 
@@ -54,6 +58,19 @@ const Page = () => {
                             <option value="dragonrider">Dragon Rider</option>
                             <option value="hand_of_the_king">Hand of the King</option>
                         </select>
+                    </div>
+                    <br />
+                    <div>
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DatePicker
+                                label="BirthDate"
+                                defaultValue={fecha}
+                                value={fecha}
+                                onChange={(newFecha) => { setFecha(newFecha) }}
+
+                            />
+                        </LocalizationProvider>
+                        <input type="hidden" name="selectedDate" value={formattedDate} />
                     </div>
                     <br />
                     <button type="submit" disabled={pending}>Enter</button>

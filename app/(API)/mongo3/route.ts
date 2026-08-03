@@ -9,7 +9,7 @@ const GET = async (request: NextRequest) => {
     
     try {
         const client = await mongodbConexion;
-        const db = client.db("hotd_db");
+        const db = client.db("nextjs_test");
         const colection = db.collection("characters")
         if(id) {
             const data = await colection.findOne({"_id": new ObjectId(id)});

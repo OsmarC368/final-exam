@@ -18,7 +18,7 @@ const FormEpisode = ({ episode }: EpisodeDataProps) => {
 
     useEffect(() => {
         if (request.auth) {
-            window.location.href = "/episode";
+            window.location.href = "/episode?message=Action Completed Succesfully!";
         }
     }, [request]);
 

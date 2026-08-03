@@ -18,7 +18,7 @@ const FormValyrians = ({ valyrian }: ValyrianDataProps) => {
 
     useEffect(() => {
             if (request.auth) {
-                window.location.href = "/valyrian";
+                window.location.href = "/valyrian?message=Action Completed Succesfully!";
             }
         }, [request]);
         
@@ -38,7 +38,7 @@ const FormValyrians = ({ valyrian }: ValyrianDataProps) => {
                     <br />
                     <div>
                         <label htmlFor="translation">Translation</label>
-                        <input type="number" id="translation" name="translation" required disabled={pending} defaultValue={valyrian?.translation || ""}/>
+                        <input type="text" id="translation" name="translation" required disabled={pending} defaultValue={valyrian?.translation || ""}/>
                     </div>
                     <br />
                     <div>

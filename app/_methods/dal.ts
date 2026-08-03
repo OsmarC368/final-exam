@@ -1,5 +1,5 @@
 "use server"
-import { decrypt, logout } from "@/app/_methods/sesion"
+import { decrypt } from "@/app/_methods/sesion"
 import { cookies } from "next/headers"
 
 const checkUser = async () => {
@@ -15,8 +15,4 @@ const GetUser = async () => {
     return user;
 }
 
-const LoginOut = async () => {
-    await logout();
-}
-
-export { LoginOut, GetUser, checkUser}
+export { GetUser, checkUser}

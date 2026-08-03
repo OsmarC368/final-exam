@@ -20,7 +20,7 @@ const FormCharacters = ({ character }: CharacterDataProps) => {
 
     useEffect(() => {
         if (request.auth) {
-            window.location.href = "/character";
+            window.location.href = "/character?message=Action Completed Succesfully!";
         }
     }, [request]);
 

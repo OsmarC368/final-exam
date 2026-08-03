@@ -5,6 +5,7 @@ import egg from "@/app/_resources/icons/egg-icon.png"
 import dragon from "@/app/_resources/icons/dragon-icon.png"
 import hand from "@/app/_resources/icons/hand-icon.png"
 import Image from "next/image"
+import LogoutButton from "@/app/_components/_global/logout-button"
 
 const Header = () => {
     const user = use(GetUser())
@@ -58,9 +59,10 @@ const Header = () => {
                         <Link href={"/"} style={{ color: "#f8fafc", textDecoration: "none", padding: "0.45rem 0.8rem", borderRadius: "100px", background: "rgba(255,255,255,0.12)" }}>
                             Inicio
                         </Link>
-                        <Link href={"/logout"} style={{ color: "#0f172a", textDecoration: "none", padding: "0.45rem 0.8rem", borderRadius: "100px", background: "#f8fafc", fontWeight: "600" }}>
+                        {/* <Link href={"/logout"} style={{ color: "#0f172a", textDecoration: "none", padding: "0.45rem 0.8rem", borderRadius: "100px", background: "#f8fafc", fontWeight: "600" }}>
                             Cerrar Sesión
-                        </Link>
+                        </Link> */}
+                        <LogoutButton/>
                         <Image src={icon} alt="User Icon" width={40} height={40} />
                     </nav>
                     

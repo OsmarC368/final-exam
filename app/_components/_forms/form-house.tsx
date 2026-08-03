@@ -16,7 +16,7 @@ const FormHouses = ({ house }: HouseDataProps) => {
     });
     useEffect(() => {
         if (request.auth) {
-            window.location.href = "/house";
+            window.location.href = "/house?message=Action Completed Succesfully!";
         }
     }, [request]);
 
@@ -45,13 +45,13 @@ const FormHouses = ({ house }: HouseDataProps) => {
                     </div>
                     <br />
                     <div>
-                        <label htmlFor="description">Region</label>
-                        <input type="text" id="description" name="description" required disabled={pending} defaultValue={house?.region || ""}/>
+                        <label htmlFor="region">Region</label>
+                        <input type="text" id="region" name="region" required disabled={pending} defaultValue={house?.region || ""}/>
                     </div>
                     <br />
                     <div>
-                        <label htmlFor="shieldUrl">Shield URL</label>
-                        <input type="text" id="shieldUrl" name="shieldUrl" required disabled={pending} defaultValue={house?.shield || ""}/>
+                        <label htmlFor="shield">Shield URL (Only Pinterest)</label>
+                        <input type="text" id="shield" name="shield" required disabled={pending} defaultValue={house?.shield || ""}/>
                     </div>
                     <br />
                     <br />

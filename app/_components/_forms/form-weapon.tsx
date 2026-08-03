@@ -18,7 +18,7 @@ const FormWeapons = ({ weapon }: WeaponDataProps) => {
 
     useEffect(() => {
         if (request.auth) {
-            window.location.href = "/weapons";
+            window.location.href = "/weapon?message=Action Completed Succesfully!";
         }
     }, [request]);
 

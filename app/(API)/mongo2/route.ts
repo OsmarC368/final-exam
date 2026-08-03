@@ -38,7 +38,7 @@ const POST = async (request: NextRequest) => {
     console.log(body)
     try {
         const client = await mongodbConexion;
-        const db = client.db("nextjs_test");
+        const db = client.db("hotd_db");
         const colection = db.collection("weapons")
         const newWeapon = await colection.insertOne({
             name: body.name,
@@ -70,7 +70,7 @@ const DELETE = async (request: NextRequest) => {
     console.log(body)
     try {
         const client = await mongodbConexion;
-        const db = client.db("nextjs_test");
+        const db = client.db("hotd_db");
         const colection = db.collection("weapons")
         const res = await colection.deleteOne({_id: new ObjectId(body.id)})
 
@@ -98,7 +98,7 @@ const PUT = async (request: NextRequest) => {
     console.log(body);
     try {
         const client = await mongodbConexion;
-        const db = client.db("nextjs_test");
+        const db = client.db("hotd_db");
         const colection = db.collection("weapons")
 
         const res = await colection.updateOne(

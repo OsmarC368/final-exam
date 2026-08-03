@@ -1,3 +1,4 @@
+"use server"
 import "server-only"
 import { jwtVerify, SignJWT } from "jose"
 import { cookies } from "next/headers"
@@ -47,7 +48,7 @@ export const deleteSession = async () => {
     data?.delete("session");
 };
 
-export const logout = () => {
-    deleteSession();
+export const logout = async () => {
+    await deleteSession();
     redirect("/")
 };
