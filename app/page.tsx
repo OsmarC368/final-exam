@@ -29,7 +29,7 @@ const imageReducer = (index: number, action: string) => {
     case "Next":
       return (index + 1) % dragonsImages.length;
     case "Prev":
-      return (index - 1) % dragonsImages.length;
+      return (index - 1 + dragonsImages.length) % dragonsImages.length;
     default:
       return index
   }
