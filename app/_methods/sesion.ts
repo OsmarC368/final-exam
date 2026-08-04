@@ -24,13 +24,13 @@ export const encrypt = async (payload: Payload) => {
     return new SignJWT(payload)
     .setProtectedHeader({alg: 'HS256'})
     .setIssuedAt()
-    .setExpirationTime("50 min")
+    .setExpirationTime("60 min")
     .sign(encodedKey);
 };
 
 export const createSession = async (user : Payload) => {
     const data = await cookies();
-    const expiresAt = new Date(Date.now() + (5 * 60 * 1000));
+    const expiresAt = new Date(Date.now() + (60 * 60 * 1000));
     const session = await encrypt(user);
 
     data.set("session", session, {
