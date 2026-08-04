@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import Graphic from "@/app/_components/_graphics/graphic-dragons";
+import Graphic from "@/app/_components/_graphics/graphic-houses";
 import HousesTable from "@/app/_components/_data-grids/houses-table";
 
 const Waiting = () => <div><h1>Cargando gráfico...</h1></div>;
