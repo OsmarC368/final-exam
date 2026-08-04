@@ -1,7 +1,7 @@
 "use client"
 import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
 import { TreeItem } from '@mui/x-tree-view/TreeItem';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 interface SidebarProps {
     role: string
@@ -9,6 +9,8 @@ interface SidebarProps {
 
 const Sidebar = ({ role = "dragonseed" }: SidebarProps) => {
     const router = useRouter();
+    const path = usePathname();
+    const pathSelected = (currentPath: string) => path === currentPath
     return (
         <div style={{
             background: "black",
@@ -33,19 +35,19 @@ const Sidebar = ({ role = "dragonseed" }: SidebarProps) => {
                 <TreeItem itemId='postgre' label="PostgreSQL">
                     {(role == "dragonrider" || role == "hand_of_the_king") ? (
                         <>
-                            <TreeItem itemId='obj-postgre2' label="Monarchs" onClick={() => router.push("/monarch")} />
-                            <TreeItem itemId='obj-postgre3' label="Valyrian Dictionary" onClick={() => router.push("/valyrian")} />
+                            <TreeItem itemId='obj-postgre2' label="Monarchs" onClick={() => router.push("/monarch")} style={{ backgroundColor: pathSelected("/monarch") ? "#910904" : "transparent"}} />
+                            <TreeItem itemId='obj-postgre3' label="Valyrian Dictionary" onClick={() => router.push("/valyrian")} style={{ backgroundColor: pathSelected("/valyrian") ? "#910904" : "transparent"}} />
                         </>
                     ) : null}
-                    <TreeItem itemId='obj-postgre1' label="Houses" onClick={() => router.push("/house")} />
-                    <TreeItem itemId='obj-postgre4' label="Castles" onClick={() => router.push("/castle")} />
+                    <TreeItem itemId='obj-postgre1' label="Houses" onClick={() => router.push("/house")} style={{ backgroundColor: pathSelected("/house") ? "#910904" : "transparent"}}/>
+                    <TreeItem itemId='obj-postgre4' label="Castles" onClick={() => router.push("/castle")} style={{ backgroundColor: pathSelected("/castle") ? "#910904" : "transparent"}} />
                 </TreeItem>
                 {(role == "hand_of_the_king") ? (
                     <TreeItem itemId='mongo' label="MongoDB">
-                        <TreeItem itemId='obj-mongo1' label="Dragons" onClick={() => router.push("/dragons")} />
-                        <TreeItem itemId='obj-mongo2' label="Weapons" onClick={() => router.push("/weapon")} />
-                        <TreeItem itemId='obj-mongo3' label="Character" onClick={() => router.push("/character")} />
-                        <TreeItem itemId='obj-mongo4' label="Episodes" onClick={() => router.push("/episode")} />
+                        <TreeItem itemId='obj-mongo1' label="Dragons" onClick={() => router.push("/dragons")} style={{ backgroundColor: pathSelected("/dragons") ? "#910904" : "transparent"}} />
+                        <TreeItem itemId='obj-mongo2' label="Weapons" onClick={() => router.push("/weapon")} style={{ backgroundColor: pathSelected("//weapon") ? "#910904" : "transparent"}} />
+                        <TreeItem itemId='obj-mongo3' label="Character" onClick={() => router.push("/character")} style={{ backgroundColor: pathSelected("/character") ? "#910904" : "transparent"}} />
+                        <TreeItem itemId='obj-mongo4' label="Episodes" onClick={() => router.push("/episode")} style={{ backgroundColor: pathSelected("/episode") ? "#910904" : "transparent"}} />
                     </TreeItem>
                 ) : null}
 

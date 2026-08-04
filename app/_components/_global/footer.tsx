@@ -1,7 +1,12 @@
+"use client"
+import { BotonCambiar } from "@/app/_components/_global/toggle-banner"
+import {useBanner} from "@/app/_components/_context/BannerContext"
+
 const Footer = () => {
+    const { banner } = useBanner();
     return (
         <div style={{
-            background: "linear-gradient(270deg,rgba(163, 0, 0, 1) 0%, rgba(102, 0, 0, 1) 58%, rgba(87, 23, 0, 1) 100%)",
+            background: banner,
             color: "#e2e8f0",
             padding: "1rem 1.5rem",
             borderTop: "1px solid rgba(255, 255, 255, 0.12)"
@@ -18,6 +23,7 @@ const Footer = () => {
                 <p style={{ margin: 0, fontSize: "0.95rem" }}>
                     © 2026 Final Exam. Todos los derechos reservados.
                 </p>
+                <BotonCambiar/>
             </div>
         </div>
     )

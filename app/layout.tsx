@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { GetUser } from "@/app/_methods/dal";
-import "./globals.css";
+import "@/app/globals.css";
+import { BannerProvider } from "./_components/_context/BannerContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,20 +27,22 @@ export default async function RootLayout({children, footer, header, sidebar}: La
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <header>
-          {header}
-        </header>
-        <div style={{ display: "flex", flex: 1, gap: "1rem", padding: "1rem" }}>
-          <div>
-            {(user) ? sidebar : null}
+        <BannerProvider>
+          <header>
+            {header}
+          </header>
+          <div style={{ display: "flex", flex: 1, gap: "1rem", padding: "1rem" }}>
+            <div>
+              {(user) ? sidebar : null}
+            </div>
+            <div>
+              {children}
+            </div>
           </div>
-          <div>
-            {children}
-          </div>
-        </div>
-        <footer>
-          {footer}
-        </footer>
+          <footer>
+            {footer}
+          </footer>
+        </BannerProvider>
       </body>
     </html>
   );
